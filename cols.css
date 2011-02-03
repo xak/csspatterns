@@ -1,0 +1,69 @@
+/* ////////
+	COL PATTERN
+	//////// */
+
+/*
+	zF. | http://zackfrazier.com
+*/
+
+/*
+<div class="parent">
+
+	<div class="row_ three_col_">
+		<div class="col_"></div>
+		<div class="col_"></div>
+		<div class="col_"></div>
+	</div>
+
+</div>
+*/
+
+/* clear rows */
+.row_:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.row_ { display: inline-block; }
+* html .row_ { height: 1%; }
+.row_ { display: block; }
+/* feel free to override for specific modules (see #crazy-gutters) */
+.row_ { width: 125%; }
+/* adjust margin as required for gutter widths */
+.col_ { display: block; float: left; margin-right: 10px; }
+/* use .last_ in markup if necessary */
+.col_:last-child, .last_ { margin-right: 0; }
+
+/* 
+	specific layouts 
+*/
+/* .parent is an example selector (yours might be #content or .related-links) */
+.parent { 
+	/* recommended */
+	overflow: hidden;
+	/* required */
+	width: 800px; 
+}
+/* set widths for various scenarios as your layout requires */
+.parent .two_col_ .col_ { width: 392px; }
+.parent .three_col_ .col_ { width: 256px; }
+.parent .four_col_ .col_ { width: 188px; }
+
+/*
+<div class="parent" id="crazy-gutters">
+
+	<div class="row_ three_col_">
+		<div class="col_"></div>
+		<div class="col_"></div>
+		<div class="col_"></div>
+	</div>
+
+</div>
+*/
+
+/* example overriding the .row_ percentage */
+#crazy-gutters .three_col_ .col_ { width: 66px; margin-right: 300px; }
+/* (366*3=1098) > (800*1.25=1000) 
+	cols will wrap using default 125% */
+#crazy-gutters .row_ { 
+	/* required */
+	width: 1098px; 
+}
+
+
